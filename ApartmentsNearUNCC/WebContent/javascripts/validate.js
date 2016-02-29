@@ -20,7 +20,7 @@ else if(password==""){
 }
 else if ( username == "test" && password == "test123"){
 alert ("Login successfully");
-window.location.href="/login.do";
+window.location.href="login.do";
 //window.location = "success.html"; // Redirecting to other page.
 return false;
 }

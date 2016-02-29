@@ -29,7 +29,7 @@ public class ActionServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		System.out.println("Inside Servlet!!");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		getServletConfig().getServletContext().getRequestDispatcher("HomePage.html").forward(request,response);
+		getServletConfig().getServletContext().getRequestDispatcher("/HomePage.html").forward(request,response);
 	}
 
 	/**
