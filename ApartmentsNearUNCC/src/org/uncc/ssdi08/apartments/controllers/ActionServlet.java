@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.uncc.ssdi08.apartments.models.dao.DatabaseConnection;
+
 /**
  * Servlet implementation class ActionServlet
  */
@@ -27,9 +29,12 @@ public class ActionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Inside Servlet!!");
+		System.out.println("Inside Servlet!!"+request.getParameter("username"));
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		getServletConfig().getServletContext().getRequestDispatcher("/HomePage.html").forward(request,response);
+		if(DatabaseConnection.isValidLogin(request.getParameter("username"), request.getParameter("password")))
+			getServletConfig().getServletContext().getRequestDispatcher("/HomePage.html").forward(request,response);
+		else
+			response.getWriter().append("Error in Login: ").append(request.getParameter("username"));
 	}
 
 	/**

@@ -3,33 +3,31 @@
  */
 var attempt = 3; // Variable to count number of attempts.
 // Below function Executes on click of login button.
-function validate(){
-var username = document.getElementById("username").value;
-var password = document.getElementById("password").value;
-document.getElementById("username").style.borderColor="#ccc";
-document.getElementById("password").style.borderColor="#ccc";
+function validate(form){
+var username = form.username.value;
+var password = form.password.value;
+form.username.style.borderColor="#ccc";
+form.password.style.borderColor="#ccc";
 if(username==""){
-	document.getElementById("username").focus();
-	document.getElementById("username").style.borderColor="red";
-	document.getElementById("username").style.style.borderStyle="solid";
+	//alert("Error!!");
+	form.username.focus();
+	form.username.style.borderColor="red";
+	form.username.style.borderStyle="solid";
+	return false;
+	
 }
 else if(password==""){
-	document.getElementById("password").focus();
-	document.getElementById("password").style.borderColor="red";
-	document.getElementById("password").style.style.borderStyle="solid";
+	form.password.focus();
+	form.password.style.borderColor="red";
+	form.password.style.borderStyle="solid";
+	return false;
 }
-else if ( username == "test" && password == "test123"){
-alert ("Login successfully");
-window.location.href="login.do";
-//window.location = "success.html"; // Redirecting to other page.
-return false;
-}
-else{
-attempt --;// Decrementing by one.
-alert("You have left "+attempt+" attempt;");
-// Disabling fields after 3 attempts.
-if( attempt == 0){
-return false;
-}
-}
+
+
+/*else
+{
+	window.location.href="";
+	//window.location = "success.html"; // Redirecting to other page.
+	return false;
+}*/
 }
